@@ -17,7 +17,7 @@ namespace API.Core
             Expression<Func<TDocument, bool>> filterExpression,
             Expression<Func<TDocument, TProjected>> projectionExpression);
 
-        ICollection<TDocument> GetAll();
+        List<TDocument> GetAll();
 
         TDocument FindOne(Expression<Func<TDocument, bool>> filterExpression);
 

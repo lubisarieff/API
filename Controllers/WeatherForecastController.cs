@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace API.Controllers
-{
+{   
     [ApiController]
-    [Route("[controller]")]
+    [Route("/api/person")]
     public class WeatherForecastController : ControllerBase
     {
         private readonly IMongoRepository<Person> _peopleRepository;
@@ -18,22 +18,12 @@ namespace API.Controllers
         public WeatherForecastController(IMongoRepository<Person> peopleRepository)
         {
              _peopleRepository = peopleRepository;
-              var person = new Person()
-             {
-                FirstName = "John",
-                LastName = "Doe"
-             };
-             _peopleRepository.InsertOne(person);
         }
-
-         [HttpGet]
-         public IEnumerable<string> GetPeopleData()
-         {
-             var people = _peopleRepository.FilterBy(
-                 filter => filter.FirstName != "test",
-                 projection => projection.FirstName
-        );
-        return people;
+        
+        [HttpGet]
+        public List<Person> GetAll()
+        {
+            return _peopleRepository.GetAll();
         }
     }
 }

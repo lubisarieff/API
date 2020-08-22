@@ -42,10 +42,9 @@ namespace API.Core
             return _collection.Find(filterExpression).Project(projectionExpression).ToEnumerable();
         }
 
-        public virtual ICollection<TDocument> GetAll()
-        {
-            return _collection.Find(TDocument => true).ToList();
-        }
+        public List<TDocument> GetAll() => 
+            _collection.Find(TDocument => true).ToList();
+            
         public virtual TDocument FindOne(Expression<Func<TDocument, bool>> filterExpression)
         {
             return _collection.Find(filterExpression).FirstOrDefault();
