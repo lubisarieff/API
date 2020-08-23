@@ -5,6 +5,6 @@ namespace API.Core
     public abstract class Document : IDocument
     {
         public ObjectId Id { get; set; }
-        public DateTime CreadAt => Id.CreationTime;
+        public DateTime CreateAt => Id.CreationTime;
     }
 }

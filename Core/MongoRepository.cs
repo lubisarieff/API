@@ -42,9 +42,24 @@ namespace API.Core
             return _collection.Find(filterExpression).Project(projectionExpression).ToEnumerable();
         }
 
-        public List<TDocument> GetAll() => 
+        //Get All Data From Collection
+        public virtual IEnumerable<TDocument> GetAll() => 
             _collection.Find(TDocument => true).ToList();
-            
+        
+        //Get All Data From Collection Using Async
+        public virtual async Task<IEnumerable<TDocument>> GetAllAsync()
+        {
+            try
+            {
+                return await _collection.Find(_ => true).ToListAsync();
+            } 
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public virtual TDocument FindOne(Expression<Func<TDocument, bool>> filterExpression)
         {
             return _collection.Find(filterExpression).FirstOrDefault();
@@ -55,6 +70,7 @@ namespace API.Core
             return Task.Run(() => _collection.Find(filterExpression).FirstOrDefaultAsync());
         }
 
+        //Get Data By Id From Collection
         public virtual TDocument FindById(string id)
         {
             var objectId = new ObjectId(id);
@@ -62,6 +78,7 @@ namespace API.Core
             return _collection.Find(filter).SingleOrDefault();
         }
 
+        //Get Data By Id From Collection Using Async
         public virtual Task<TDocument> FindByIdAsync(string id)
         {
             return Task.Run(() => 
@@ -72,29 +89,33 @@ namespace API.Core
             });
         }
 
+        //Insert One Data To Collection
         public virtual void InsertOne(TDocument document)
         {
             _collection.InsertOne(document);
         }
 
+        //Insert One Data To Collection Using Async
         public virtual Task InsertOneAsync(TDocument document)
         {
             return Task.Run(() => _collection.InsertOneAsync(document));
         }
 
+        //Insert One Or More Data To Collection
         public virtual void InsertMany(ICollection<TDocument> documents)
         {
             _collection.InsertMany(documents);
         }
 
+         //Insert One Or More Data To Collection Using Async
         public virtual Task InsertManyAsync(ICollection<TDocument> documents)
         {
             return Task.Run(() => _collection.InsertManyAsync(documents));
         }
 
-        public void ReplaceOne(TDocument document)
+        public void ReplaceOne(string id, TDocument document)
         {
-            var filter = Builders<TDocument>.Filter.Eq(fil => fil.Id, document.Id);
+            var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id.ToString(), id);
             _collection.FindOneAndReplace(filter, document);
         }
 

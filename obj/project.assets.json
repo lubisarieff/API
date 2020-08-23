@@ -4789,19 +4789,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Regar\\.nuget\\packages\\": {}
+    "C:\\Users\\arief\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\asp\\Blog\\API\\API.csproj",
+      "projectUniqueName": "D:\\Github\\C#\\ASP\\Blog\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "d:\\asp\\Blog\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\Regar\\.nuget\\packages\\",
-      "outputPath": "d:\\asp\\Blog\\API\\obj\\",
+      "projectPath": "D:\\Github\\C#\\ASP\\Blog\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\arief\\.nuget\\packages\\",
+      "outputPath": "D:\\Github\\C#\\ASP\\Blog\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Regar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\arief\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

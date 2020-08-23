@@ -17,7 +17,12 @@ namespace API.Core
             Expression<Func<TDocument, bool>> filterExpression,
             Expression<Func<TDocument, TProjected>> projectionExpression);
 
-        List<TDocument> GetAll();
+        /*
+        READ
+        */
+        IEnumerable<TDocument> GetAll();
+
+        Task<IEnumerable<TDocument>> GetAllAsync();
 
         TDocument FindOne(Expression<Func<TDocument, bool>> filterExpression);
 
@@ -26,7 +31,10 @@ namespace API.Core
         TDocument FindById(string id);
 
         Task<TDocument> FindByIdAsync(string id);
-
+        
+        /*
+        INSERT
+        */
         void InsertOne(TDocument document);
 
         Task InsertOneAsync(TDocument document);
@@ -35,10 +43,16 @@ namespace API.Core
 
         Task InsertManyAsync(ICollection<TDocument> documents);
 
-        void ReplaceOne(TDocument document);
+        /*
+        UPDATE
+        */
+        void ReplaceOne(string id, TDocument document);
 
         Task ReplaceOneAsync(TDocument document);
 
+        /*
+        DELETE
+        */
         void DeleteOne(Expression<Func<TDocument, bool>> filterExpression);
 
         Task DeleteOneAsync(Expression<Func<TDocument, bool>> filterExpression);
@@ -50,5 +64,6 @@ namespace API.Core
         void DeleteMany(Expression<Func<TDocument, bool>> filterExpression);
 
         Task DeleteManyAsync(Expression<Func<TDocument, bool>> filterExpression);
+        
     }
 }

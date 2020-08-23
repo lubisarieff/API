@@ -8,6 +8,6 @@ namespace API.Core
         [BsonId]
         [BsonRepresentation(BsonType.String)]
         ObjectId Id { get; set; }
-        System.DateTime CreadAt { get; }
+        System.DateTime CreateAt { get; }
     }
 }

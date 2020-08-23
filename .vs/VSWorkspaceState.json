@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Core",
+    "\\Core\\Repository",
+    "\\Core\\Repository\\Interface"
+  ],
+  "SelectedNode": "\\Core\\Repository\\Interface\\IDbCreate.cs",
+  "PreviewInSolutionExplorer": false
+}

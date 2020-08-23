@@ -23,7 +23,8 @@ namespace API.Controllers
         [HttpGet]
         public List<Person> GetAll()
         {
-            return _peopleRepository.GetAll();
+            //return _peopleRepository.GetAll();
+            return null;
         }
     }
 }
